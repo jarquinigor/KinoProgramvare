@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dni" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Genre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rating" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Movie" FromRole="Movie" ToRole="Order" />
+    <NavigationProperty Name="ShowTime" Relationship="Self.FK_ShowTime_Movie" FromRole="Movie" ToRole="ShowTime" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Seats" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TheaterId" Type="Int32" Nullable="false" />
+    <Property Name="ShowTimeId" Type="Int32" Nullable="false" />
+    <Property Name="MovieId" Type="Int32" Nullable="false" />
+    <Property Name="Tickets" Type="Int32" Nullable="false" />
+    <Property Name="TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="CreditCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="Movie" Relationship="Self.FK_Order_Movie" FromRole="Order" ToRole="Movie" />
+    <NavigationProperty Name="ShowTime" Relationship="Self.FK_Order_ShowTime" FromRole="Order" ToRole="ShowTime" />
+    <NavigationProperty Name="Order_Snack" Relationship="Self.FK_Order_Snack_Order" FromRole="Order" ToRole="Order_Snack" />
+    <NavigationProperty Name="Theater" Relationship="Self.FK_Order_Theater" FromRole="Order" ToRole="Theater" />
+  </EntityType>
+  <EntityType Name="Order_Snack">
+    <Key>
+      <PropertyRef Name="Order_Snack1" />
+    </Key>
+    <Property Name="Order_Snack1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="SnackId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Snack_Order" FromRole="Order_Snack" ToRole="Order" />
+    <NavigationProperty Name="Snack" Relationship="Self.FK_Order_Snack_Snack" FromRole="Order_Snack" ToRole="Snack" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="SeatId" />
+    </Key>
+    <Property Name="SeatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Letter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="X" Type="Int32" Nullable="false" />
+    <Property Name="Y" Type="Int32" Nullable="false" />
+    <Property Name="Flag" Type="Int32" Nullable="false" />
+    <Property Name="ShowTimeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ShowTime" Relationship="Self.FK_Seat_ShowTime" FromRole="Seat" ToRole="ShowTime" />
+  </EntityType>
+  <EntityType Name="ShowTime">
+    <Key>
+      <PropertyRef Name="ShowTimeId" />
+    </Key>
+    <Property Name="ShowTimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TheaterId" Type="Int32" Nullable="false" />
+    <Property Name="MovieId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Movie" Relationship="Self.FK_ShowTime_Movie" FromRole="ShowTime" ToRole="Movie" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_ShowTime" FromRole="ShowTime" ToRole="Order" />
+    <NavigationProperty Name="Seat" Relationship="Self.FK_Seat_ShowTime" FromRole="ShowTime" ToRole="Seat" />
+    <NavigationProperty Name="Theater" Relationship="Self.FK_ShowTime_Theater" FromRole="ShowTime" ToRole="Theater" />
+  </EntityType>
+  <EntityType Name="Snack">
+    <Key>
+      <PropertyRef Name="SnackId" />
+    </Key>
+    <Property Name="SnackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order_Snack" Relationship="Self.FK_Order_Snack_Snack" FromRole="Snack" ToRole="Order_Snack" />
+  </EntityType>
+  <EntityType Name="Theater">
+    <Key>
+      <PropertyRef Name="TheaterId" />
+    </Key>
+    <Property Name="TheaterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Theater" FromRole="Theater" ToRole="Order" />
+    <NavigationProperty Name="ShowTime" Relationship="Self.FK_ShowTime_Theater" FromRole="Theater" ToRole="ShowTime" />
+  </EntityType>
+  <Association Name="FK_Order_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Movie">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShowTime_Movie">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+    <End Role="ShowTime" Type="Self.ShowTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="ShowTime">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_ShowTime">
+    <End Role="ShowTime" Type="Self.ShowTime" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShowTime">
+        <PropertyRef Name="ShowTimeId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ShowTimeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Snack_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Order_Snack" Type="Self.Order_Snack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="Order_Snack">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Theater">
+    <End Role="Theater" Type="Self.Theater" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theater">
+        <PropertyRef Name="TheaterId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TheaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Snack_Snack">
+    <End Role="Snack" Type="Self.Snack" Multiplicity="1" />
+    <End Role="Order_Snack" Type="Self.Order_Snack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Snack">
+        <PropertyRef Name="SnackId" />
+      </Principal>
+      <Dependent Role="Order_Snack">
+        <PropertyRef Name="SnackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seat_ShowTime">
+    <End Role="ShowTime" Type="Self.ShowTime" Multiplicity="1" />
+    <End Role="Seat" Type="Self.Seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShowTime">
+        <PropertyRef Name="ShowTimeId" />
+      </Principal>
+      <Dependent Role="Seat">
+        <PropertyRef Name="ShowTimeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShowTime_Theater">
+    <End Role="Theater" Type="Self.Theater" Multiplicity="1" />
+    <End Role="ShowTime" Type="Self.ShowTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theater">
+        <PropertyRef Name="TheaterId" />
+      </Principal>
+      <Dependent Role="ShowTime">
+        <PropertyRef Name="TheaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Movie" EntityType="Self.Movie" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="Order_Snack" EntityType="Self.Order_Snack" />
+    <EntitySet Name="Seat" EntityType="Self.Seat" />
+    <EntitySet Name="ShowTime" EntityType="Self.ShowTime" />
+    <EntitySet Name="Snack" EntityType="Self.Snack" />
+    <EntitySet Name="Theater" EntityType="Self.Theater" />
+    <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Movie" Association="Self.FK_Order_Movie">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShowTime_Movie" Association="Self.FK_ShowTime_Movie">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="ShowTime" EntitySet="ShowTime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_ShowTime" Association="Self.FK_Order_ShowTime">
+      <End Role="ShowTime" EntitySet="ShowTime" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Snack_Order" Association="Self.FK_Order_Snack_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Snack" EntitySet="Order_Snack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Theater" Association="Self.FK_Order_Theater">
+      <End Role="Theater" EntitySet="Theater" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Snack_Snack" Association="Self.FK_Order_Snack_Snack">
+      <End Role="Snack" EntitySet="Snack" />
+      <End Role="Order_Snack" EntitySet="Order_Snack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seat_ShowTime" Association="Self.FK_Seat_ShowTime">
+      <End Role="ShowTime" EntitySet="ShowTime" />
+      <End Role="Seat" EntitySet="Seat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShowTime_Theater" Association="Self.FK_ShowTime_Theater">
+      <End Role="Theater" EntitySet="Theater" />
+      <End Role="ShowTime" EntitySet="ShowTime" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

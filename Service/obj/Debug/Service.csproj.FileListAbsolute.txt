@@ -1,0 +1,15 @@
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Service.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Service.pdb
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Model.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Persistence.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\EntityFramework.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Model.pdb
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Model.dll.config
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Persistence.pdb
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\Persistence.dll.config
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\bin\Debug\EntityFramework.xml
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\obj\Debug\Service.csprojAssemblyReference.cache
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\obj\Debug\Service.csproj.CopyComplete
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\obj\Debug\Service.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Service\obj\Debug\Service.pdb

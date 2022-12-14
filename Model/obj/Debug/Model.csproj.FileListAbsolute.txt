@@ -1,0 +1,12 @@
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\Model.dll.config
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\Model.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\Model.pdb
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\EntityFramework.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\EntityFramework.xml
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\obj\Debug\Model.dll
+C:\Users\51987\Desktop\KinoProgramvare RESPALDO LIMPIO - copia\src\Model\obj\Debug\Model.pdb
